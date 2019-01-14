@@ -6,7 +6,7 @@ pipeline {
         echo 'hello wold'
         bat 'gradle build '
         bat 'gradle jar '
-        sh 'gradle javadoc'
+        bat 'gradle javadoc '
         archiveArtifacts(artifacts: 'build/libs/*.jar', onlyIfSuccessful: true)
       }
     }
@@ -31,7 +31,7 @@ pipeline {
     }
     stage('Deployment') {
       steps {
-        sh 'gradle uploadArchives'
+        bat 'gradle uploadArchives'
       }
     }
     stage('slack notification') {
