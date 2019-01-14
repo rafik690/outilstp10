@@ -3,6 +3,7 @@ pipeline {
   stages {
     stage('Build') {
       steps {
+        echo 'hello wold'
         sh 'gradle build '
         sh 'gradle jar '
         sh 'gradle javadoc'
