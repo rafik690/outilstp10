@@ -20,7 +20,7 @@ pipeline {
         stage('code Analysis') {
           steps {
             withSonarQubeEnv('sonarqube') {
-              bat 'C:\\Users\\BS INFORMATIQUE\\Downloads\\sonar-scanner-cli-3.3.0.1492-windows\\sonar-scanner-3.3.0.1492-windows\\bin\\sonar-scanner'
+              bat '"C:\\Users\\BS INFORMATIQUE\\Downloads\\sonar-scanner-cli-3.3.0.1492-windows\\sonar-scanner-3.3.0.1492-windows\\bin\\sonar-scanner"'
             }
 
             waitForQualityGate true
