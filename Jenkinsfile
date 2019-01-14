@@ -1,14 +1,11 @@
 pipeline {
   agent any
-  tools {
-gradle 'gradle'
-}
   stages {
     stage('Build') {
       steps {
         echo 'hello wold'
-        sh 'gradle build '
-        sh 'gradle jar '
+        bat 'gradle build '
+        bat 'gradle jar '
         sh 'gradle javadoc'
         archiveArtifacts(artifacts: 'build/libs/*.jar', onlyIfSuccessful: true)
       }
@@ -42,5 +39,8 @@ gradle 'gradle'
         slackSend(channel: '#general', message: 'build and deployment done')
       }
     }
+  }
+  tools {
+    gradle 'gradle'
   }
 }
