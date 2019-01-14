@@ -19,6 +19,8 @@ pipeline {
       parallel {
         stage('code Analysis') {
           steps {
+            tool 'SonarQubeScanner'
+            tool 'sonarqube'
             waitForQualityGate true
           }
         }
